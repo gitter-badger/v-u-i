@@ -1,0 +1,185 @@
+/* * * * * * * * * * * * * * * *
+            table
+* * * * * * * * * * * * * * * */
+.i-table {
+  &.loading {
+    position: relative;
+
+    & > .loader {
+      .loading-spinner(@rootLineHeight+@rootSpacingTB*2);
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: @rootDimmer;
+    }
+
+    & > *:not(.loader) {
+      filter: blur(3px) grayscale(.65);
+    }
+  }
+
+  & > table {
+    width: 100%;
+    max-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    & > tbody > tr > td,
+    & > thead > tr > th {
+      text-align: left;
+      vertical-align: top;
+      padding: @rootSpacing;
+      border-top: 1px solid @secondColor;
+
+      &.selector {
+        padding: 0 @rootArrowSize;
+        width: @rootArrowSize*3;
+        position: relative;
+      }
+
+      &.right {
+        text-align: right;
+      }
+
+      &.center {
+        text-align: center;
+      }
+    }
+
+    & > thead > tr > th {
+      vertical-align: bottom;
+      border-top-width: 0;
+    }
+  }
+}
+/* * * * * * * * * * * * * * * *
+        bordered
+* * * * * * * * * * * * * * * */
+.i-table.bordered > table {
+  border: 1px solid @secondColor;
+  border-radius: @rootRadiusSize;
+
+  & > tbody > tr > td,
+  & > thead > tr > th {
+    border: 1px solid @secondColor;
+  }
+}
+/* * * * * * * * * * * * * * * *
+        hidden header
+* * * * * * * * * * * * * * * */
+.i-table.hidden-header > table > tbody > tr:first-child > td {
+  border-top-width: 0;
+}
+/* * * * * * * * * * * * * * * *
+        fixed header
+* * * * * * * * * * * * * * * */
+.i-table.fixed-header {
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  & > table > thead > tr > th {
+    padding: 0;
+    border-width: 0;
+
+    & > div {
+      position: relative;
+      z-index: 1;
+      margin-top: -1px;
+      background-color: @rootBackground;
+      padding: @rootSpacing;
+      border-bottom: 1px solid @secondColor;
+    }
+
+    &.selector > div {
+      padding: 0 @rootArrowSize;
+      min-height: @rootLineHeight + @rootSpacingTB*2 + 2;
+    }
+  }
+}
+
+.i-table.bordered.fixed-header{
+  border-bottom: 1px solid @secondColor;
+  & > table{
+    border-bottom-width: 0;
+    & > thead > tr > th {
+      & > div {
+        border-top: 1px solid @secondColor;
+        border-left: 1px solid @secondColor;
+      }
+
+      &:first-child {
+        & > div {
+          border-left-color: transparent;
+        }
+      }
+    }
+    & > tbody > tr:last-child > td {
+      border-bottom-width: 0;
+    }
+  }
+}
+/* * * * * * * * * * * * * * * *
+        Children Row
+* * * * * * * * * * * * * * * */
+.i-table > table {
+  & > tbody > tr > td.selector > .children-selector {
+    position: absolute;
+    border-style: solid;
+    border-width: @rootArrowSize;
+    border-color: transparent transparent transparent @secondColor;
+    right: 0;
+    top: (@rootLineHeight + @rootSpacingTB*2 + 2)/2 - @rootArrowSize;
+    transition: all @rootDurationTime linear;
+    cursor: pointer;
+    user-select: none;
+
+    &.opened {
+      transform: rotate(90deg);
+      transform-origin: 25% 50%;
+      border-left-color: @primaryColor;
+    }
+
+    &:hover {
+      border-left-color: @primaryColor;
+    }
+  }
+
+  & > tbody > tr.children {
+    opacity: 0;
+    display: none;
+    transition: all @rootDurationTime linear;
+    background-color: @rootDimmer;
+
+    &.opened {
+      opacity: 1;
+      display: table-row;
+    }
+  }
+}
+/* * * * * * * * * * * * * * * *
+        Selectable Row
+* * * * * * * * * * * * * * * */
+.i-table > table > tbody > tr > td.selector .row-selector,
+.i-table > table > thead > tr > th.selector .row-selector {
+  .i-checkbox();
+  width: @rootArrowSize*2;
+  height: @rootArrowSize*2;
+  display: block;
+  position: absolute;
+  z-index: 0;
+  margin-right: @rootArrowSize/2;
+  right: 0;
+  top: (@rootLineHeight + @rootSpacingTB*2 + 2)/2 - @rootArrowSize;
+
+  .selector {
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    input[type=checkbox] + .checker:before {
+      border-radius: 0;
+    }
+  }
+}

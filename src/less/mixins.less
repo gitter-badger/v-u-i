@@ -1,0 +1,36 @@
+
+/* * * * * * * * * * * * * * * *
+            spinner
+* * * * * * * * * * * * * * * */
+
+.loading-spinner(@spinner-size: @rootLineHeight; @spinner-width: 2px; @spinner-color: #FFF; @spinner-background: #000;){
+  position: relative;
+  &:before{
+    content: ' ';
+    position: absolute;
+    width: @spinner-size;
+    height: @spinner-size;
+    border: 2px solid @spinner-background;
+    border-radius: 100%;
+    left: 50%;
+    top: 50%;
+    margin-left: @spinner-size/-2;
+    margin-top: @spinner-size/-2;
+    opacity: .5;
+  }
+  &:after{
+    content: ' ';
+    position: absolute;
+    width: @spinner-size;
+    height: @spinner-size;
+    border-width: @spinner-width;
+    border-style: solid;
+    border-color: @spinner-color transparent transparent;
+    border-radius: 100%;
+    left: 50%;
+    top: 50%;
+    margin-left: @spinner-size/-2;
+    margin-top: @spinner-size/-2;
+    animation: spinning-360 .6s linear infinite;
+  }
+}

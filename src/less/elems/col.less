@@ -1,0 +1,37 @@
+/* * * * * * * * * * * * * * * *
+            col
+* * * * * * * * * * * * * * * */
+// col
+.i-col {
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: @rootSpacingLR;
+  padding-left: @rootSpacingLR;
+}
+
+.define-column-position(@type, @index) when (@index >= 0) {
+  .define-column-position(@type, @index - 1);
+
+  .i-col.@{type}-@{index} {
+    width: percentage(@index / 12);
+  }
+
+  .i-col.@{type}-offset-@{index} {
+    margin-left: percentage(@index / 12);
+  }
+}
+// xs
+.define-column-position(xs, 12);
+// sm
+@media (min-width: 768px) {
+  .define-column-position(sm, 12);
+}
+// md
+@media (min-width: 992px) {
+  .define-column-position(md, 12);
+}
+// lg
+@media (min-width: 1200px) {
+  .define-column-position(lg, 12);
+}

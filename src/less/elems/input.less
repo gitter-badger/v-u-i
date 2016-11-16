@@ -1,0 +1,52 @@
+/* * * * * * * * * * * * * * * *
+            input
+* * * * * * * * * * * * * * * */
+.i-input {
+  display: inline-block;
+  width: 100%;
+  cursor: text;
+  color: @textColor;
+  height: @rootSpacingTB*2 + 2 + @rootLineHeight;
+  padding: @rootSpacing;
+  line-height: @rootLineHeight;
+  font-size: @rootFontSize;
+  background-color: @rootBackground;
+  border: 1px solid @secondColor;
+  border-radius: @rootRadiusSize;
+
+  &:hover {
+    outline: 0;
+    border-color: @primaryColor;
+  }
+
+  &:focus {
+    outline: 0;
+    border-color: @primaryDarkColor;
+    box-shadow: 0 0 1px @primaryDarkColor;
+  }
+
+  &::placeholder{
+    color: @textLightColor;
+  }
+}
+/* * * * * * * * * * * * * * * *
+            disabled
+* * * * * * * * * * * * * * * */
+.i-input[disabled] {
+  opacity: @rootUnableOpacity;
+  cursor: not-allowed;
+  background-color: @secondLightColor;
+
+  &:focus,
+  &:hover {
+    border-color: @secondColor;
+    box-shadow: none;
+  }
+}
+/* * * * * * * * * * * * * * * *
+            readonly
+* * * * * * * * * * * * * * * */
+.i-input[readonly] {
+  cursor: inherit;
+  background-color: @secondLightColor;
+}

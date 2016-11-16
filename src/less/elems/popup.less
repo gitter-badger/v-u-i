@@ -1,0 +1,65 @@
+/* * * * * * * * * * * * * * * *
+            popup
+* * * * * * * * * * * * * * * */
+.i-popup {
+  position: absolute;
+  z-index: 2;
+  word-break: break-all;
+  background-color: @rootBackground;
+  padding: @rootSpacing;
+  border-radius: @rootRadiusSize;
+  border: 1px solid @secondColor;
+  box-shadow: 0 0 1px @rootDimmer;
+  transition: transform @rootDurationTime linear;
+  opacity: 0;
+  &.opened{
+    opacity: 1;
+  }
+  &:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: @rootArrowSize;
+    height: @rootArrowSize;
+    transform: rotate(45deg);
+    border-width: 1px;
+    border-style: solid;
+    background-color: @rootBackground;
+  }
+  &.top{
+    margin-top: @rootArrowSize * -1;
+    &:before{
+      bottom: -1px;
+      left: 50%;
+      transform: rotate(-45deg) translateX(-50%);
+      border-color: transparent transparent @secondColor @secondColor;
+    }
+  }
+  &.bottom{
+    margin-top: @rootArrowSize;
+    &:before{
+      top: -1px;
+      left: 50%;
+      transform: rotate(45deg) translateX(-50%);
+      border-color: @secondColor transparent transparent @secondColor;
+    }
+  }
+  &.left{
+    margin-left: @rootArrowSize * -1;
+    &:before{
+      right: -1px;
+      top: 50%;
+      transform: rotate(45deg) translateY(-50%);
+      border-color: @secondColor @secondColor transparent transparent;
+    }
+  }
+  &.right{
+    margin-left: @rootArrowSize;
+    &:before{
+      left: -1px;
+      top: 50%;
+      transform: rotate(-45deg) translateY(-50%);
+      border-color: @secondColor transparent transparent @secondColor;
+    }
+  }
+}

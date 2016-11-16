@@ -1,0 +1,130 @@
+/* * * * * * * * * * * * * * * *
+            slider
+* * * * * * * * * * * * * * * */
+.i-slider {
+  @sliderLineHeight: @rootArrowSize*2;
+  @sliderBtnHeight: @sliderLineHeight + @rootArrowSize*1.5;
+  @sliderBtnWidth: @sliderBtnHeight/1.6;
+  position: relative;
+  height: @rootLineHeight + @rootSpacingTB*2 + 2;
+  margin: 0 @sliderBtnWidth/2;
+
+  // line
+  & .line {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    height: @sliderLineHeight;
+    margin-top: @sliderLineHeight/-2;
+    background-color: @secondColor;
+    border-radius: @rootRadiusSize;
+  }
+  // bar
+  & .bar {
+    position: absolute;
+    top: 50%;
+    height: @sliderLineHeight;
+    margin-top: @sliderLineHeight/-2;
+    background-color: @primaryColor;
+    border-radius: @rootRadiusSize;
+    transition: all @rootDurationTime linear;
+  }
+  // tip
+  & .tip {
+    display: none;
+    position: absolute;
+    height: @rootLineHeight;
+    width: auto;
+    min-width: @rootLineHeight*1.5;
+    transform: translateY(-100%);
+    margin-top: (@sliderBtnHeight - @sliderLineHeight) / -2;
+    margin-left: @rootLineHeight*1.5/-2;
+    text-align: center;
+    border: 1px solid @primaryColor;
+    background-color: @primaryColor;
+    color: #FFF;
+    border-radius: @rootRadiusSize;
+    transition: all @rootDurationTime linear;
+
+    &:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: @rootArrowSize*-2;
+      margin-left: @rootArrowSize*-1;
+      border-width: @rootArrowSize;
+      border-style: solid;
+      border-color: @primaryColor transparent transparent transparent;
+    }
+  }
+  // btn
+  & .btn {
+    position: absolute;
+    height: @sliderBtnHeight;
+    width: @sliderBtnWidth;
+    top: 50%;
+    margin-top: @sliderBtnHeight/-2;
+    margin-left: @sliderBtnWidth/-2;
+    border: 1px solid @secondColor;
+    background-color: @rootBackground;
+    cursor: pointer;
+    border-radius: @rootRadiusSize;
+    transition: all @rootDurationTime linear;
+
+    &:hover {
+      border-color: @primaryColor;
+    }
+
+    &:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      height: 80%;
+      width: @sliderBtnWidth/2;
+      top: 10%;
+      left: 50%;
+      margin-left: @sliderBtnWidth/-4;
+      border-width: 0 1px;
+      border-color: @secondColor;
+      border-style: solid;
+    }
+
+    &.dropping,
+    &.dropping:before {
+      border-color: @primaryColor;
+    }
+
+    &.dropping + .tip,
+    &:hover + .tip {
+      display: block;
+    }
+  }
+  /* * * * * * * * * * * * * * * *
+              disabled
+  * * * * * * * * * * * * * * * */
+  &.disabled{
+    opacity: @rootUnableOpacity;
+    // bar
+    .bar {
+      background-color: @secondDarkColor;
+    }
+    // btn
+    .btn {
+      cursor: not-allowed;
+
+      &:hover {
+        border-color: @secondColor;
+      }
+    }
+    // tip
+    .tip {
+      border-color: transparent;
+      background-color: @secondColor;
+
+      &:before {
+        border-top-color: @secondColor;
+      }
+    }
+  }
+}

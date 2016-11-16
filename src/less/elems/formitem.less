@@ -1,0 +1,32 @@
+/* * * * * * * * * * * * * * * *
+          form item
+* * * * * * * * * * * * * * * */
+.i-form-item {
+  margin-bottom: @rootSpacingTB*3;
+}
+// label
+.i-form-item .label {
+  font-weight: bold;
+  margin-bottom: @rootSpacingTB;
+}
+// helper
+.i-form-item .helper {
+  color: @textLightColor;
+}
+// form placeholder
+.i-form-item .text {
+  display: inline-block;
+  width: 100%;
+  line-height: @rootLineHeight;
+  padding: @rootSpacing;
+}
+/* * * * * * * * * * * * * * * *
+            error
+* * * * * * * * * * * * * * * */
+.i-form-item.error .label{
+  color: @errorColor;
+}
+
+.i-form-item.error .helper{
+  color: @errorLightColor;
+}

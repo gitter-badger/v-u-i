@@ -1,0 +1,64 @@
+/* * * * * * * * * * * * * * * *
+            message
+* * * * * * * * * * * * * * * */
+.i-message {
+  position: fixed;
+  top: 20px;
+  min-width: 300px;
+  max-width: 65%;
+  padding: @rootSpacing;
+  border-radius: @rootRadiusSize;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FFF;
+  background-color: @primaryColor;
+  z-index: 2;
+  box-shadow: 0 0 1px @rootDimmer;
+  cursor: pointer;
+  &.success{
+    background-color: @successColor;
+    & > .type{
+      background-image: url(../images/icon-success.png);
+    }
+  }
+  &.info{
+    background-color: @infoColor;
+    & > .type{
+      background-image: url(../images/icon-info.png);
+    }
+  }
+  &.error{
+    background-color: @errorColor;
+    & > .type{
+      background-image: url(../images/icon-error.png);
+    }
+  }
+  &.warning{
+    background-color: @warningColor;
+    & > .type{
+      background-image: url(../images/icon-warning.png);
+    }
+  }
+  & > .type{
+    float: left;
+    width: @rootLineHeight;
+    height: @rootLineHeight;
+    background-image: url(../images/icon-message.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  & > .content{
+    margin-left: @rootLineHeight + @rootSpacingLR;
+  }
+}
+
+
+.slide-top-enter-active, .slide-top-leave-active {
+  transition: all @rootDurationTime linear;
+}
+.slide-top-enter, .slide-top-leave-active {
+  top: 0;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+}

@@ -1,0 +1,29 @@
+/* * * * * * * * * * * * * * * *
+            textarea
+* * * * * * * * * * * * * * * */
+.i-textarea {
+  .i-input();
+  height: auto;
+  max-width: 100%;
+}
+/* * * * * * * * * * * * * * * *
+            disabled
+* * * * * * * * * * * * * * * */
+.i-textarea[disabled] {
+  opacity: @rootUnableOpacity;
+  cursor: not-allowed;
+  background-color: @secondLightColor;
+
+  &:focus,
+  &:hover {
+    border-color: @secondColor;
+    box-shadow: none;
+  }
+}
+/* * * * * * * * * * * * * * * *
+            readonly
+* * * * * * * * * * * * * * * */
+.i-textarea[readonly] {
+  cursor: inherit;
+  background-color: @secondLightColor;
+}

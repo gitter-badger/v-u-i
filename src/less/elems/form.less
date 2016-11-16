@@ -1,0 +1,60 @@
+/* * * * * * * * * * * * * * * *
+            form
+* * * * * * * * * * * * * * * */
+.i-form {
+  display: inline-block;
+  width: 100%;
+}
+/* * * * * * * * * * * * * * * *
+        inline form
+* * * * * * * * * * * * * * * */
+.i-form.inline .i-form-item {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: @rootSpacingLR;
+
+  &:after {
+    display: table;
+    content: ' ';
+    clear: both;
+  }
+
+  & > .label {
+    margin: 0;
+    padding: @rootSpacingTB @rootSpacingLR @rootSpacingTB 0;
+    float: left;
+  }
+
+  & > .content {
+    float: right;
+
+    & > .i-input {
+      width: auto;
+    }
+  }
+}
+/* * * * * * * * * * * * * * * *
+        horizontal form
+* * * * * * * * * * * * * * * */
+.i-form.horizontal .i-form-item {
+  vertical-align: top;
+
+  &:after {
+    display: table;
+    content: ' ';
+    clear: both;
+  }
+
+  & > .label {
+    margin: 0;
+    padding: @rootSpacingTB @rootSpacingLR @rootSpacingTB 0;
+    float: left;
+    text-align: right;
+    width: 20%;
+  }
+
+  & > .content {
+    float: right;
+    width: 80%;
+  }
+}

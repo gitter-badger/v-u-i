@@ -1,0 +1,96 @@
+/* * * * * * * * * * * * * * * *
+           box-sizing
+* * * * * * * * * * * * * * * */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+.ctx-box {
+  &,
+  *,
+  *:after,
+  *:before {
+    box-sizing: content-box;
+  }
+}
+/* * * * * * * * * * * * * * * *
+           text
+* * * * * * * * * * * * * * * */
+html {
+  -webkit-tap-highlight-color: rgba(0,0,0, 0);
+}
+
+body {
+  font-family: @rootFontFamily;
+  font-size: @rootFontSize;
+  line-height: @rootLineHeight;
+  color: @textColor;
+}
+
+p {
+  margin: 0 0 @rootSpacingTB*2;
+}
+/* * * * * * * * * * * * * * * *
+           title
+* * * * * * * * * * * * * * * */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  line-height: 1.1;
+  font-family: @rootFontFamily;
+  color: @textDarkColor;
+  margin: @rootSpacingTB*2 0 @rootSpacingTB*1.5;
+}
+
+h4,
+h5,
+h6 {
+  margin: @rootSpacingTB*1.5 0 @rootSpacingTB;
+}
+
+h1 {
+  font-size: @rootFontSize + 16;
+}
+
+h2 {
+  font-size: @rootFontSize + 12;
+}
+
+h3 {
+  font-size: @rootFontSize + 8;
+}
+
+h4 {
+  font-size: @rootFontSize + 4;
+}
+
+h5 {
+  font-size: @rootFontSize + 2;
+}
+
+h6 {
+  font-size: @rootFontSize;
+}
+/* * * * * * * * * * * * * * * *
+           link
+* * * * * * * * * * * * * * * */
+a {
+  color: @primaryColor;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    color: @primaryLightColor;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: @primaryDarkColor;
+  }
+}
