@@ -1,4 +1,7 @@
 # V-U-I
+[![npm package](https://img.shields.io/npm/v/v-u-i.svg)](https://www.npmjs.org/package/v-u-i)
+[![NPM downloads](http://img.shields.io/npm/dt/v-u-i.svg)](https://www.npmjs.org/package/v-u-i)
+[![License](https://img.shields.io/npm/l/v-u-i.svg)](https://www.npmjs.com/package/v-u-i)
 > V-U-I is a UI elements for Vue.js 2.0
 
 ## Install

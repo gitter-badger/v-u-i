@@ -51,6 +51,9 @@ const install = (Vue, options)=>{
   Vue.prototype.$message = message
 }
 
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
 
 export default {
   install,

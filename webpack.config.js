@@ -4,13 +4,22 @@ var extractText           = new ExtractTextPlugin("v-u-i.css");
 var pkg                   = require('./package');
 
 module.exports = {
-  entry: ['./src/index.js', './src/less/index.less'],
+  entry: ['./src/less/index.less', './src/index.js'],
   resolve: {
     extensions: ['', '.js', '.vue']
   },
   output: {
-    path: './build',
+    path: './dist',
     filename: 'v-u-i.js',
+    libraryTarget: 'umd'
+  },
+  externals: {
+    'vue': {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    }
   },
   module: {
     loaders: [{

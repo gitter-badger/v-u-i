@@ -1,8 +1,8 @@
 {
   "name": "v-u-i",
-  "version": "0.1.0",
-  "description": "V-U-I is a UI elements for Vue.js 2.0",
-  "main": "src/index.js",
+  "version": "0.1.1",
+  "description": "UI elements for Vue.js 2.0",
+  "main": "dist/v-u-i.js",
   "author": "kekecha",
   "license": "MIT",
   "keywords": [
@@ -17,9 +17,6 @@
   },
   "bugs": {
     "url": "https://github.com/kekecha/v-u-i/issues"
-  },
-  "dependencies": {
-    "vue": "^2.0.0-rc.6"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",
