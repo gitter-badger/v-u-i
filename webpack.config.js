@@ -1,22 +1,21 @@
 var webpack               = require('webpack');
-var ExtractTextPlugin     = require("extract-text-webpack-plugin");
-var extractText           = new ExtractTextPlugin("v-u-i.css");
 var pkg                   = require('./package');
 
 module.exports = {
-  entry: ['./src/index.js', './src/less/index.less'],
+  entry: './docs/index.js',
   resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    },
     extensions: ['', '.js', '.vue']
   },
   output: {
-    path: './build',
-    filename: 'v-u-i.js',
+    path: './',
+    pathinfo: true,
+    filename: 'index.js',
   },
   module: {
     loaders: [{
-      test:/\.(less|css)$/,
-      loader: extractText.extract("style-loader", "css-loader!less-loader")
-    }, {
       test: /\.vue$/,
       loaders: ['vue'],
       exclude: [/node_modules/]
@@ -33,7 +32,6 @@ module.exports = {
     }]
   },
   plugins: [
-    extractText,
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
@@ -43,7 +41,7 @@ module.exports = {
     new webpack.BannerPlugin(
       [
         '/**',
-        ' * ' + pkg.name + ' v' + pkg.version,
+        ' * ' + pkg.name,
         ' * ' + pkg.description,
         ' * Licensed under ' + pkg.license,
         ' */'
