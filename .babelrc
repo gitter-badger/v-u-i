@@ -3,5 +3,6 @@
   "plugins": [
     "transform-runtime",
     "transform-vue-jsx"
-  ]
+  ],
+  "compact": false
 }
