@@ -1,4 +1,6 @@
 # V-U-I
+[![Build Status](https://travis-ci.org/kekecha/v-u-i.svg?branch=master)](https://travis-ci.org/kekecha/v-u-i)
+[![Coverage Status](https://coveralls.io/repos/github/kekecha/v-u-i/badge.svg?branch=master)](https://coveralls.io/github/kekecha/v-u-i?branch=master)
 [![npm package](https://img.shields.io/npm/v/v-u-i.svg)](https://www.npmjs.org/package/v-u-i)
 [![NPM downloads](http://img.shields.io/npm/dt/v-u-i.svg)](https://www.npmjs.org/package/v-u-i)
 [![License](https://img.shields.io/npm/l/v-u-i.svg)](https://www.npmjs.com/package/v-u-i)

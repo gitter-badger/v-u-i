@@ -71,7 +71,7 @@ export default {
       let activePaths = {}
       items.forEach((i)=>{
         if(activePaths[i.name]){
-          console && console.warn && console.warn('[VUI]: MenuError-> duplicate name for MenuItem')
+          return
         }
         activePaths[i.name] = [i.name].concat(parentPath)
         if(i.children){

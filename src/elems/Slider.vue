@@ -60,11 +60,11 @@ export default {
   methods: {
     dragStart(e){
       e.preventDefault()
-      if(this.readonly || this.disabled){
+      if(this.readonly || this.disabled || this.dropping){
         return
       }
       this.dropping = true
-      let baseWidth = e.target.parentElement.clientWidth
+      let baseWidth = Math.max(e.target.parentElement.clientWidth, 10)
       let startX = e.clientX
       let startValue = this.iptValue
       let tip = e.target.nextElementSibling

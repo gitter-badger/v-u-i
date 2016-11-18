@@ -6,6 +6,9 @@ var pkg                   = require('./package');
 module.exports = {
   entry: ['./src/less/index.less', './src/index.js'],
   resolve: {
+    alias: {
+      'vue': 'vue/dist/vue'
+    },
     extensions: ['', '.js', '.vue']
   },
   output: {

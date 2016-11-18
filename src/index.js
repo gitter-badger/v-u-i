@@ -26,6 +26,7 @@ const install = (Vue, options)=>{
   if (install.installed){
     return
   }
+  install.installed = true
   Vue.component(Row.name, Row)
   Vue.component(Col.name, Col)
   Vue.component(Btn.name, Btn)

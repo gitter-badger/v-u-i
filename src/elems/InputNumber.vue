@@ -40,8 +40,8 @@ export default {
   props: {
     name: { type: String, required: true },
     value: { type: Number },
-    min: { type: Number },
-    max: { type: Number },
+    min: { type: Number, default: -Infinity },
+    max: { type: Number, default: +Infinity },
     step: { type: Number, default: 1 },
     placeholder: { type: String },
     readonly: { type: Boolean },
