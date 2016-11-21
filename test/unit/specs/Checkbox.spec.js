@@ -48,5 +48,36 @@ describe('Checkbox.vue', () => {
     })
   })
 
+  it('event', () => {
+    const vm = new Vue({
+      el: document.createElement('div'),
+      render: (h) => {
+        return <div>
+          <Checkbox
+            name='test'
+            value={['read']}
+            options={[
+              {value: 'read', text: 'read'},
+              {value: 'music', text: 'music'},
+              {value: 'sport', text: 'sport'}
+            ]}
+          >
+          </Checkbox>
+        </div>
+      }
+    })
+    vm.$children[0].$emit.call(vm.$children[0], 'formValidate-test', {})
+    let musicCheckbox = vm.$el.querySelector('input[value=music]')
+    musicCheckbox.checked = true
+    musicCheckbox.dispatchEvent(new Event('change'))
+    expect(vm.$children[0].iptValue).to.eql(['read', 'music'])
+    vm.$children[0].$emit.call(vm.$children[0], 'formReseted')
+    return new Promise((resolve, reject)=>{
+      vm.$children[0].$nextTick(()=>{
+        expect(musicCheckbox.checked).to.be.false
+        resolve()
+      })
+    })
+  })
 
 })
