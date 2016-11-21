@@ -14,8 +14,8 @@ describe('Card.vue', () => {
         </Card>
       }
     })
-    Object.keys(vm.$slots).forEach(i=>{
-      expect(i).to.equal(vm.$slots[i][0].elm.textContent)
+    Object.keys(vm.$children[0].$slots).forEach(i=>{
+      expect(i).to.equal(vm.$children[0].$slots[i][0].elm.textContent)
     })
   })
 
@@ -30,8 +30,8 @@ describe('Card.vue', () => {
         </Card>
       }
     })
-    Object.keys(vm.$slots).forEach(i=>{
-      expect([].slice.call(vm.$slots[i][0].elm.classList)).to.include('no-spacing')
+    Object.keys(vm.$children[0].$slots).forEach(i=>{
+      expect([].slice.call(vm.$children[0].$slots[i][0].elm.parentElement.classList)).to.include('no-spacing')
     })
   })
 
