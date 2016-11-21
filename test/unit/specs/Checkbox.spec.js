@@ -8,6 +8,20 @@ describe('Checkbox.vue', () => {
       el: document.createElement('div'),
       render: (h) => {
         return <div>
+          <Checkbox name='test'>
+          </Checkbox>
+        </div>
+      }
+    })
+    let cbs = [].slice.call(vm.$el.querySelectorAll('.i-checkbox'))
+    expect(cbs.length).to.equal(0)
+  })
+
+  it('slot', () => {
+    const vm = new Vue({
+      el: document.createElement('div'),
+      render: (h) => {
+        return <div>
           <Checkbox
             name='test'
             options={[
