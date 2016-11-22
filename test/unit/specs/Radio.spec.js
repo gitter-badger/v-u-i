@@ -1,19 +1,19 @@
 import Vue from 'vue'
-import Checkbox from '../../../src/elems/Checkbox'
+import Radio from '../../../src/elems/Radio'
 
-describe('Checkbox.vue', () => {
+describe('Radio.vue', () => {
 
   it('empty slot', () => {
     const vm = new Vue({
       el: document.createElement('div'),
       render: (h) => {
         return <div>
-          <Checkbox name='test'>
-          </Checkbox>
+          <Radio name='test'>
+          </Radio>
         </div>
       }
     })
-    let cbs = [].slice.call(vm.$el.querySelectorAll('.i-checkbox'))
+    let cbs = [].slice.call(vm.$el.querySelectorAll('.i-radio'))
     expect(cbs.length).to.equal(0)
   })
 
@@ -22,7 +22,7 @@ describe('Checkbox.vue', () => {
       el: document.createElement('div'),
       render: (h) => {
         return <div>
-          <Checkbox
+          <Radio
             name='test'
             options={[
               {value: 'read', text: 'read'},
@@ -30,11 +30,11 @@ describe('Checkbox.vue', () => {
               {value: 'sport', text: 'sport'}
             ]}
           >
-          </Checkbox>
+          </Radio>
         </div>
       }
     })
-    let cbs = [].slice.call(vm.$el.querySelectorAll('.i-checkbox'))
+    let cbs = [].slice.call(vm.$el.querySelectorAll('.i-radio'))
     expect(cbs.length).to.equal(3)
   })
 
@@ -43,16 +43,16 @@ describe('Checkbox.vue', () => {
       el: document.createElement('div'),
       render: (h) => {
         return <div>
-          <Checkbox
+          <Radio
             name='test'
-            value={['read']}
+            value='read'
             options={[
               {value: 'read', text: 'read'},
               {value: 'music', text: 'music'},
               {value: 'sport', text: 'sport'}
             ]}
           >
-          </Checkbox>
+          </Radio>
         </div>
       }
     })
@@ -67,34 +67,34 @@ describe('Checkbox.vue', () => {
       el: document.createElement('div'),
       render: (h) => {
         return <div>
-          <Checkbox
+          <Radio
             name='test'
-            value={['read']}
+            value='read'
             options={[
               {value: 'read', text: 'read'},
               {value: 'music', text: 'music'},
               {value: 'sport', text: 'sport'}
             ]}
           >
-          </Checkbox>
+          </Radio>
         </div>
       }
     })
     vm.$children[0].$emit.call(vm.$children[0], 'formValidate-test', {})
-    let musicCheckbox = vm.$el.querySelector('input[value=music]')
+    let musicRadio = vm.$el.querySelector('input[value=music]')
     return Promise.resolve()
       .then(()=>new Promise((resolve, reject)=>{
-        musicCheckbox.checked = true
-        musicCheckbox.dispatchEvent(new Event('change'))
+        musicRadio.checked = true
+        musicRadio.dispatchEvent(new Event('change'))
         vm.$children[0].$nextTick(()=>{
-          expect(vm.$children[0].iptValue).to.eql(['read', 'music'])
+          expect(vm.$children[0].iptValue).to.equal('music')
           resolve()
         })
       }))
       .then(()=>new Promise((resolve, reject)=>{
         vm.$children[0].$emit.call(vm.$children[0], 'formReseted')
         vm.$children[0].$nextTick(()=>{
-          expect(musicCheckbox.checked).to.be.false
+          expect(musicRadio.checked).to.be.false
           resolve()
         })
       }))
