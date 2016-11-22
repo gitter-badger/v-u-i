@@ -95,17 +95,21 @@ describe('Collapse.vue', () => {
       }
     })
     let firstLabel = vm.$children[0].$el.querySelector('div:first-child>.label')
-    firstLabel.dispatchEvent(new Event('click'))
-    return new Promise((resolve, reject)=>{
-      vm.$children[0].$nextTick(()=>{
-        expect(firstLabel.parentElement.className).to.equal('opened')
+    return Promise.resolve()
+      .then(()=>new Promise((resolve, reject)=>{
+        firstLabel.dispatchEvent(new Event('click'))
+        vm.$children[0].$nextTick(()=>{
+          expect(firstLabel.parentElement.className).to.equal('opened')
+          resolve()
+        })
+      }))
+      .then(()=>new Promise((resolve, reject)=>{
         firstLabel.dispatchEvent(new Event('click'))
         vm.$children[0].$nextTick(()=>{
           expect(firstLabel.parentElement.className).to.equal('')
           resolve()
         })
-      })
-    })
+      }))
   })
 
   it('multiple event', () => {
@@ -127,17 +131,21 @@ describe('Collapse.vue', () => {
       }
     })
     let firstLabel = vm.$children[0].$el.querySelector('div:first-child>.label')
-    firstLabel.dispatchEvent(new Event('click'))
-    return new Promise((resolve, reject)=>{
-      vm.$children[0].$nextTick(()=>{
-        expect(firstLabel.parentElement.className).to.equal('opened')
+    return Promise.resolve()
+      .then(()=>new Promise((resolve, reject)=>{
+        firstLabel.dispatchEvent(new Event('click'))
+        vm.$children[0].$nextTick(()=>{
+          expect(firstLabel.parentElement.className).to.equal('opened')
+          resolve()
+        })
+      }))
+      .then(()=>new Promise((resolve, reject)=>{
         firstLabel.dispatchEvent(new Event('click'))
         vm.$children[0].$nextTick(()=>{
           expect(firstLabel.parentElement.className).to.equal('')
           resolve()
         })
-      })
-    })
+      }))
   })
 
 })

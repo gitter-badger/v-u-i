@@ -82,16 +82,22 @@ describe('Checkbox.vue', () => {
     })
     vm.$children[0].$emit.call(vm.$children[0], 'formValidate-test', {})
     let musicCheckbox = vm.$el.querySelector('input[value=music]')
-    musicCheckbox.checked = true
-    musicCheckbox.dispatchEvent(new Event('change'))
-    expect(vm.$children[0].iptValue).to.eql(['read', 'music'])
-    vm.$children[0].$emit.call(vm.$children[0], 'formReseted')
-    return new Promise((resolve, reject)=>{
-      vm.$children[0].$nextTick(()=>{
-        expect(musicCheckbox.checked).to.be.false
-        resolve()
-      })
-    })
+    return Promise.resolve()
+      .then(()=>new Promise((resolve, reject)=>{
+        musicCheckbox.checked = true
+        musicCheckbox.dispatchEvent(new Event('change'))
+        vm.$children[0].$nextTick(()=>{
+          expect(vm.$children[0].iptValue).to.eql(['read', 'music'])
+          resolve()
+        })
+      }))
+      .then(()=>new Promise((resolve, reject)=>{
+        vm.$children[0].$emit.call(vm.$children[0], 'formReseted')
+        vm.$children[0].$nextTick(()=>{
+          expect(musicCheckbox.checked).to.be.false
+          resolve()
+        })
+      }))
   })
 
 })
