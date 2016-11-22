@@ -85,7 +85,7 @@ export default {
     onSelectItem(option){
       let selecteds = this.selecteds
       let iptValue = this.multiple
-        ? this.iptValue || []
+        ? this.iptValue
         : this.iptValue || ''
       if(iptValue.indexOf(option.value)<0){
         iptValue = this.multiple

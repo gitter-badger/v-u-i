@@ -13,8 +13,8 @@ describe('Radio.vue', () => {
         </div>
       }
     })
-    let cbs = [].slice.call(vm.$el.querySelectorAll('.i-radio'))
-    expect(cbs.length).to.equal(0)
+    let rds = [].slice.call(vm.$el.querySelectorAll('.i-radio'))
+    expect(rds.length).to.equal(0)
   })
 
   it('slot', () => {
@@ -34,8 +34,8 @@ describe('Radio.vue', () => {
         </div>
       }
     })
-    let cbs = [].slice.call(vm.$el.querySelectorAll('.i-radio'))
-    expect(cbs.length).to.equal(3)
+    let rds = [].slice.call(vm.$el.querySelectorAll('.i-radio'))
+    expect(rds.length).to.equal(3)
   })
 
   it('value', () => {
@@ -56,8 +56,8 @@ describe('Radio.vue', () => {
         </div>
       }
     })
-    let cbs = [].slice.call(vm.$el.querySelectorAll('input'))
-    cbs.forEach(i=>{
+    let rds = [].slice.call(vm.$el.querySelectorAll('input'))
+    rds.forEach(i=>{
       expect(i.checked).to.equal(i.value=='read')
     })
   })
