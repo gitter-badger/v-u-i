@@ -43,7 +43,7 @@ export default {
   },
   data(){
     return {
-      opened: this.value || this.items.length>0 ? this.items[0].name : undefined,
+      opened: this.value || (this.items.length>0 ? this.items[0].name : undefined),
       contents: [].concat(this.items),
     }
   },

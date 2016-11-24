@@ -195,7 +195,7 @@ export default {
           }else{
             keys.push(i)
             if(d.children){
-              keys = keys.concat(d.children.map((c, ci)=>ci))
+              keys = keys.concat(d.children.map((c, ci)=>i + ':' + ci))
             }
           }
           return res.concat(keys)
