@@ -112,11 +112,10 @@ export default {
       this.selecting = true
       let selecting = (se)=>{
         se.preventDefault()
-        if(this.$el.contains(se.target)){
-          return
+        if(!this.$el.contains(se.target)){
+          this.selecting = false
+          window.removeEventListener('mousedown', selecting)
         }
-        this.selecting = false
-        window.removeEventListener('mousedown', selecting)
       }
       window.addEventListener('mousedown', selecting)
     },

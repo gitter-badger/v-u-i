@@ -59,13 +59,6 @@ describe('Select.vue', () => {
         })
       }))
       .then(()=>new Promise((resolve, reject)=>{
-        vm.$children[0].$el.firstChild.dispatchEvent(new Event('mousedown', {bubbles:true}))
-        vm.$children[0].$nextTick(()=>{
-          expect([].slice.call(vm.$children[0].$el.classList)).to.include('selecting')
-          resolve()
-        })
-      }))
-      .then(()=>new Promise((resolve, reject)=>{
         let readIpt = vm.$el.querySelector('.i-select-item:nth-child(1) input')
         readIpt.checked = true
         readIpt.dispatchEvent(new Event('change'))
