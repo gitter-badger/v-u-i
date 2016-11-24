@@ -1,6 +1,6 @@
 {
   "name": "v-u-i",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "UI elements for Vue.js 2.0",
   "main": "dist/v-u-i.js",
   "author": "kekecha",
