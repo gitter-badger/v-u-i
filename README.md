@@ -1,4 +1,6 @@
 # V-U-I
+
+[![Join the chat at https://gitter.im/v-u-i/Lobby](https://badges.gitter.im/v-u-i/Lobby.svg)](https://gitter.im/v-u-i/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/kekecha/v-u-i.svg?branch=master)](https://travis-ci.org/kekecha/v-u-i)
 [![Coverage Status](https://coveralls.io/repos/github/kekecha/v-u-i/badge.svg?branch=master)](https://coveralls.io/github/kekecha/v-u-i?branch=master)
 [![npm package](https://img.shields.io/npm/v/v-u-i.svg)](https://www.npmjs.org/package/v-u-i)
