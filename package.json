@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "highlight.js": "^9.8.0",
-    "v-u-i": "^0.1.0",
+    "v-u-i": "^0.1.2",
     "vue": "^2.0.0-rc.6",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.0-rc.5"

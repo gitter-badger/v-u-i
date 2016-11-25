@@ -64,6 +64,9 @@ export default {
   },
   mounted(){
     this.fetchSource(this.$route.path)
+    if(window.ga){
+      window.ga('send', 'pageview', this.$route.path)
+    }
   },
   watch: {
     pageLink(){
@@ -71,6 +74,10 @@ export default {
       this.$refs.wrapper.scrollTop = 0
       this.$refs.code.scrollTop = 0
       this.fetchSource(this.pageLink)
+      if(window.ga){
+        window.ga('set', 'page', this.pageLink)
+        window.ga('send', 'pageview', this.pageLink)
+      }
     }
   },
   components: {
